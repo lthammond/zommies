@@ -92,6 +92,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4446, 1, 4.15256)
 use_collision = true
 material = SubResource("StandardMaterial3D_mb6xt")
 
+[node name="CSGBox3D12" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(0.471042, 0, 0.88211, 0, 1, 0, -0.88211, 0, 0.471042, 0.897, 1.86, 3.89)
+use_collision = true
+size = Vector3(3.108, 0.2, 2)
+material = SubResource("StandardMaterial3D_mb6xt")
+
 [node name="CSGBox3D11" type="CSGBox3D" parent="Geometry"]
 transform = Transform3D(0.857625, 0, 0.514275, 0, 1, 0, -0.514275, 0, 0.857625, -5.64705, 1.5, -4.79521)
 use_collision = true
@@ -117,4 +123,4 @@ shadow_enabled = true
 environment = SubResource("Environment_04r10")
 
 [node name="Player" parent="." instance=ExtResource("1_2gju5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578407, 0)
