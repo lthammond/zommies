@@ -1,7 +1,7 @@
 class_name SlidingPlayerState
 extends PlayerMovementState
 
-@export var TILT_AMOUNT : float = 0.08
+@export var TILT_AMOUNT : float = 0.06
 @export_range(1, 8, 0.1) var SLIDE_ANIM_SPEED : float = 6.5
 
 @onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast"

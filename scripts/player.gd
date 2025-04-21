@@ -24,7 +24,7 @@ var _current_rotation : float
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var gravity = GRAVITY
+var gravity: float = GRAVITY
 
 func _unhandled_input(event: InputEvent) -> void:
 	_mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -66,9 +66,9 @@ func update_gravity(delta) -> void:
 	velocity.y -= gravity * delta
 	
 func update_input(speed: float, acceleration: float, deceleration: float) -> void:
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
 		velocity.x = lerp(velocity.x,direction.x * speed, acceleration)

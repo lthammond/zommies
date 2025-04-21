@@ -12,9 +12,12 @@ var _should_slide_on_land = false
 func enter(previous_state) -> void:
 	_should_slide_on_land = false
 	PLAYER.velocity.y += JUMP_VELOCITY
-	var fov_index = ANIMATION_PLAYER.get_animation("JumpingStart").find_track("CameraController/Camera3D:fov", Animation.TYPE_VALUE)
-	ANIMATION_PLAYER.get_animation("JumpingStart").track_set_key_value(fov_index, 0, PLAYER.CAMERA_FOV)
-	ANIMATION_PLAYER.play("JumpingStart")
+	if previous_state.name == "SlidingPlayerState":
+		var fov_index = ANIMATION_PLAYER.get_animation("JumpingSlideStart").find_track("CameraController/Camera3D:fov", Animation.TYPE_VALUE)
+		ANIMATION_PLAYER.get_animation("JumpingSlideStart").track_set_key_value(fov_index, 0, PLAYER.CAMERA_FOV)
+		ANIMATION_PLAYER.play("JumpingSlideStart")
+	else:
+		ANIMATION_PLAYER.play("JumpingStart")
 
 func update(delta):
 	PLAYER.update_gravity(delta)
