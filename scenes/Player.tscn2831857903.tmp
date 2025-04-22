@@ -504,7 +504,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(1, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [8.0, 9.0]
+"values": [8.0, 4.0]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -675,10 +675,16 @@ metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_6eyey")
+SPEED = 8.0
 metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_d3wef")
+SPEED = null
+ACCELERATION = null
+DECELERATION = null
+JUMP_VELOCITY = null
+INPUT_MULTIPLIER = null
 metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="UserInterface" type="Control" parent="."]
