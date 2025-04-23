@@ -32,8 +32,8 @@ func update(delta: float) -> void:
 		
 func physics_update(delta: float) -> void:
 	PLAYER.update_input()
-	PLAYER.update_gravity(delta)
-	PLAYER.update_velocity(SPEED, ACCELERATION, DECELERATION, delta)
+	PLAYER.update_air(delta)
+	PLAYER.update_ground(SPEED, ACCELERATION, DECELERATION, delta)
 
 func uncrouch():
 	if !CROUCH_SHAPECAST.is_colliding():

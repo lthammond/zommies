@@ -28,8 +28,8 @@ func update(delta: float) -> void:
 
 func physics_update(delta: float) -> void:
 	PLAYER.update_input()
-	PLAYER.update_gravity(delta)
-	PLAYER.update_velocity(SPEED * INPUT_MULTIPLIER, ACCELERATION, DECELERATION, delta)
+	PLAYER.update_air(delta)
+	PLAYER.update_ground(SPEED * INPUT_MULTIPLIER, ACCELERATION, DECELERATION, delta)
 	if PLAYER.is_on_floor():
 		ANIMATION_PLAYER.play("JumpingEnd")
 		if _should_slide_on_land and PLAYER.velocity.length() != 0.0:

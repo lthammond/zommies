@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj1fkbs5vhuti"]
+[gd_scene load_steps=9 format=3 uid="uid://dj1fkbs5vhuti"]
 
 [ext_resource type="PackedScene" uid="uid://cq4qvjpa6gr" path="res://scenes/Player.tscn" id="1_2gju5"]
 
@@ -23,6 +23,13 @@ background_mode = 2
 sky = SubResource("Sky_pnuh5")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_2gju5"]
+_data = {
+"points": PackedVector3Array(9.91314, 10.8391, 0, -9.91314, -10.8391, 0, 25.3144, -16.6781, 0, 3.41925, -18.0372, 0, -3.41925, 18.0372, 0, -0.00759506, -0.00408071, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="World" type="Node3D"]
 
@@ -124,3 +131,22 @@ environment = SubResource("Environment_04r10")
 
 [node name="Player" parent="." instance=ExtResource("1_2gju5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468665, 0)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(3.26347, 0, 0, 0, 4.24137, 0, 0, 0, 4.32843, 10.0217, 0.502802, 0)
+curve = SubResource("Curve3D_2gju5")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false

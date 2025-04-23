@@ -32,8 +32,8 @@ func update(delta: float) -> void:
 		transition.emit("JumpingPlayerState")
 		
 func physics_update(delta: float) -> void:
-	PLAYER.update_gravity(delta)
-	PLAYER.update_velocity(SPEED, ACCELERATION, DECELERATION, delta)
+	PLAYER.update_air(delta)
+	PLAYER.update_ground(SPEED, ACCELERATION, DECELERATION, delta)
 
 func set_tilt(player_rotation) -> void:
 	var tilt = Vector3.ZERO
