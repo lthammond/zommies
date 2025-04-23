@@ -2,7 +2,7 @@ class_name SlidingPlayerState
 extends PlayerMovementState
 
 @export var SPEED : float = 8.0
-@export var MAX_SPEED : float = 10.0
+@export var MAX_SPEED : float = 4.0
 @export var ACCELERATION : float = 11
 @export var DECELERATION : float = 7 
 @export var TILT_AMOUNT : float = 0.06
@@ -16,7 +16,7 @@ func enter(previous_state) -> void:
 	
 	var speed_index = ANIMATION_PLAYER.get_animation("Sliding").find_track("PlayerStateMachine/SlidingPlayerState:SPEED", Animation.TYPE_VALUE)
 	ANIMATION_PLAYER.get_animation("Sliding").track_set_key_value(speed_index, 0, PLAYER.velocity.length())
-	ANIMATION_PLAYER.get_animation("Sliding").track_set_key_value(speed_index, 1, MAX_SPEED)
+	ANIMATION_PLAYER.get_animation("Sliding").track_set_key_value(speed_index, 1, PLAYER.velocity.length() + MAX_SPEED)
 	print(ANIMATION_PLAYER.get_animation("Sliding").track_get_key_value(speed_index, 1))
 	
 	var fov_index = ANIMATION_PLAYER.get_animation("Sliding").find_track("CameraController/Camera3D:fov", Animation.TYPE_VALUE)
