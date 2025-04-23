@@ -2,9 +2,9 @@ class_name Player extends CharacterBody3D
 ### MOVEMENT ###
 @export_group("Movement")
 @export var GRAVITY : float = 9.81
-@export var AIR_CAP : float = 1.85
-@export var AIR_ACCEL : float = 3800.0
-@export var AIR_MOVE_SPEED : float = 2500.0
+@export var AIR_CAP : float = 0.85
+@export var AIR_ACCEL : float = 800.0
+@export var AIR_MOVE_SPEED : float = 500.0
 @export var GROUND_FRICTION : float = 3.5
 ### CAMERA ###
 @export_group("Camera")
