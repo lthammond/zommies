@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cq4qvjpa6gr"]
+[gd_scene load_steps=24 format=3 uid="uid://cq4qvjpa6gr"]
 
 [ext_resource type="Script" uid="uid://d1017yeth5t1y" path="res://scripts/player.gd" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://cfboq75jrwdnt" path="res://scripts/state_machine.gd" id="2_3li8b"]
@@ -504,7 +504,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(1, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [8.0, 9.0]
+"values": [8.0, 4.0]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -533,6 +533,82 @@ tracks/7/keys = {
 "values": [75.0, 75.0, 75.0]
 }
 
+[sub_resource type="Animation" id="Animation_khinc"]
+resource_name = "Sprinting"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraController/Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.075, 0, 0.075, 0, 0.08, -0.1, 0, 0.2, 0, -0.08, -0.2, 0, 0.1, 0, 0, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraController/Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 2, 2, 2, 2, 3),
+"points": PackedFloat32Array(0, -0.0375, 0, 0.0375, 0, 0.059556, -0.05, 0, 0.1, 0, -0.06, -0.1, 0, 0.1, 0, 0.06, -0.1, 0, 0.1, 0, -0.06, -0.1, 0, 0.05, 0, 0, -0.0375, 0, 0.0375, 0),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.75, 1.05, 1.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraController/Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.5, 1.2)
+}
+
+[sub_resource type="Animation" id="Animation_cw2d6"]
+resource_name = "Walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraController:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.0153764, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.0146855, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.0153764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.0333333, 0.5, 1, 1.5, 2.03333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraController:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.266667, 0.0069176, 1.52395, -0.25, 0, 0.25, 0, 1.5, -0.333333, 0.00716805, 0.333333, 0.00766909, 1.52395, -0.25, 0, 0.25, 0, 1.5, -0.266667, 0.00741863, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraController:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3li8b"]
 _data = {
 &"Crouching": SubResource("Animation_p0vlq"),
@@ -540,7 +616,9 @@ _data = {
 &"JumpingSlideStart": SubResource("Animation_lkdrv"),
 &"JumpingStart": SubResource("Animation_d3wef"),
 &"RESET": SubResource("Animation_v6fml"),
-&"Sliding": SubResource("Animation_6eyey")
+&"Sliding": SubResource("Animation_6eyey"),
+&"Sprinting": SubResource("Animation_khinc"),
+&"Walking": SubResource("Animation_cw2d6")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p0vlq"]
@@ -570,7 +648,7 @@ update_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_3li8b")
 }
-blend_times = [&"JumpingEnd", &"JumpingStart", 0.01]
+blend_times = [&"JumpingEnd", &"JumpingStart", 0.01, &"JumpingEnd", &"Sprinting", 0.5, &"JumpingEnd", &"Walking", 0.5]
 
 [node name="CrouchShapeCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -597,10 +675,16 @@ metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_6eyey")
+SPEED = 8.0
 metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_d3wef")
+SPEED = null
+ACCELERATION = null
+DECELERATION = null
+JUMP_VELOCITY = null
+INPUT_MULTIPLIER = null
 metadata/_custom_type_script = "uid://de7q17dqaarke"
 
 [node name="UserInterface" type="Control" parent="."]
